@@ -1,6 +1,6 @@
-import { createGlobalStyle } from 'styled-components';
-import 'modern-normalize';
-import { theme } from './vars.js';
+import { createGlobalStyle } from "styled-components";
+import "modern-normalize";
+import { theme } from "./vars.js";
 
 export const GlobalStyle = createGlobalStyle`
     body {
@@ -27,6 +27,7 @@ export const GlobalStyle = createGlobalStyle`
 
     .container {
         width: ${theme.breakpoint.sm};
+        height: 100%;
         padding: 0 20px;
         margin: 0 auto;
         @media (min-width: ${theme.breakpoint.md}) {

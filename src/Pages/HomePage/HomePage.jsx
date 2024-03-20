@@ -1,12 +1,14 @@
-import React from "react";
+import { StyledSection } from "./HomePage.styled.js";
 
 function HomePage() {
   return (
     <>
-      <div>
-        home page with a general description of the services provided by the
-        company
-      </div>
+      <StyledSection>
+        <div className="container">
+          home page with a general description of the services provided by the
+          company
+        </div>
+      </StyledSection>
     </>
   );
 }

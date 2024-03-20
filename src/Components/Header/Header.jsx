@@ -1,5 +1,5 @@
 import React from "react";
-// import logo from 'src/assets/logo/logo.png'
+import { v4 as uuid } from 'uuid';
 import {
   StyledHeader,
   NavList,
@@ -19,13 +19,13 @@ function Header() {
 
           <nav>
             <NavList>
-              <li key={1}>
+              <li key={uuid()}>
                 <StyledNavLink to={"/"}>Home</StyledNavLink>
               </li>
-              <li key={2}>
+              <li key={uuid()}>
                 <StyledNavLink to={"/catalog"}>Catalog</StyledNavLink>
               </li>
-              <li key={3}>
+              <li key={uuid()}>
                 <StyledNavLink to={"/favorites"}>Favorites</StyledNavLink>
               </li>
             </NavList>

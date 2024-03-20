@@ -9,7 +9,10 @@ function AppLayout() {
       <GlobalStyle />
       <Header />
       <Suspense fallback={<p>Loading...</p>}>
-        <main>
+        <main style={{
+          width: '100vw',
+          height: '100vh',
+        }}>
           <div className="container">
             <Outlet />
           </div>
