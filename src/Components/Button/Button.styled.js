@@ -10,4 +10,8 @@ export const StyledButton = styled.button`
   background-color: ${theme.color.button};
   color: ${theme.color.white};
   cursor: pointer;
+  transition: 0.5s;
+  &:hover {
+    background-color: ${theme.color.button_hover};
+  }
 `;

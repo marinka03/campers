@@ -28,15 +28,11 @@ export const GlobalStyle = createGlobalStyle`
     .container {
         width: ${theme.breakpoint.sm};
         height: 100%;
-        padding: 0 20px;
+        padding: 0 10px;
         margin: 0 auto;
-        @media (min-width: ${theme.breakpoint.md}) {
-            width: ${theme.breakpoint.md};
-            padding: 0 32px;
-        }
         @media (min-width: ${theme.breakpoint.xl}) {
             width: ${theme.breakpoint.xl};
-            padding: 0 96px;
+            padding: 0 56px;
         }
     }
 

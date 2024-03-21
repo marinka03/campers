@@ -3,6 +3,7 @@ export const theme = {
     main: "#101828",
     text: "#475467",
     button: "#E44848",
+    button_hover: "#d84343",
     rating: "#FFC531",
     inputs: "#F7F7F7",
     block_features: "#F2F4F7",

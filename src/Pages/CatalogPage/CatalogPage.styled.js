@@ -7,51 +7,23 @@ export const StyledContentWrap = styled.div`
   gap: 64px;
   margin-top: 164px;
 `;
-
+// SIDEBAR
 export const StyledSideBar = styled.aside`
   border: ${theme.border.oranage};
   width: 360px;
   height: 740px;
 `;
 
-export const StyledItem = styled.li`
+export const FilterLocation = styled.div`
   display: flex;
-  gap: 24px;
-  border: ${theme.border.grey2};
-  border-radius: 20px;
-  padding: 24px;
-  width: 888px;
-  height: 358px;
-`;
+  flex-direction: column;
+`
 
-export const ItemTextWrap = styled.div`
-  width: 100%;
-`;
-
-export const WrapTitleCard = styled.div`
-  display: flex;
-  align-items: center;
-  font-weight: 600;
-  font-size: 24px;
-  justify-content: space-between;
-  margin-bottom: 8px;
-`;
-
-export const ReviewLocationWrap = styled.div`
-  display: flex;
-  gap: 16px;
-`;
-
-export const ReviewWrap = styled.div`
-  display: flex;
-`;
-
-export const ShortDescription = styled.p`
-  margin-bottom: 24px;
-`;
-
-export const PriceWrap = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 10px;
-`;
+export const LocationInput = styled.input`
+width: 360px;
+height: 56px;
+border-radius: 10px;
+padding: 18px 218px 18px 18px;
+background-color: ${theme.color.inputs};
+border: none;
+`
