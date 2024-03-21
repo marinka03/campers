@@ -1,5 +1,8 @@
 import styled from "styled-components";
 import { theme } from "../../vars";
+// import { SlLocationPin } from "react-icons/sl";
+// import { SlLocationPin } from "react-icons/sl";
+
 
 export const StyledContentWrap = styled.div`
   display: flex;
@@ -20,6 +23,7 @@ export const FilterLocation = styled.div`
 `
 
 export const LocationInput = styled.input`
+position: relative;
 width: 360px;
 height: 56px;
 border-radius: 10px;

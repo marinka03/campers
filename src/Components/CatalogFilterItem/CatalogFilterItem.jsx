@@ -1,10 +1,10 @@
-import { v4 as uuid } from "uuid";
 import Button from "../Button";
 import FilterListCard from "../FilterListCard";
 import RatingStars from "../Stars";
 
 import {
   StyledItem,
+  StyledImg,
   WrapTitleCard,
   ReviewLocationWrap,
   ReviewWrap,
@@ -14,22 +14,22 @@ import {
 
 function CatalogFilterItem({ item }) {
   return (
-    <StyledItem key={uuid()}>
+    <StyledItem>
       <div
         style={{
           border: "1px solid",
           borderRadius: "10px",
           overflow: "hidden",
           width: "290px",
-          height: "310px"
+          height: "310px",
         }}
       >
-        <img src={item.gallery[0]} alt="car"/>
+        <StyledImg src={item.gallery[0]} alt="car" />
       </div>
 
-      <div>
+      <div style={{ width: "520px" }}>
         <WrapTitleCard>
-          <h2>{item.name}</h2>
+          <h3>{item.name}</h3>
 
           <PriceWrap>
             <span className="price">€{item.price}</span>
@@ -45,7 +45,7 @@ function CatalogFilterItem({ item }) {
               spacing={4}
               classNames={"star-rewiew"}
             />
-            <span>
+            <span style={{ "textDecoration": "underline" }}>
               {item.rating}({item.reviews.length} Reviews)
             </span>
           </ReviewWrap>
@@ -59,7 +59,8 @@ function CatalogFilterItem({ item }) {
             ? `${item.description.slice(0, 70)}...`
             : item.description}
         </ShortDescription>
-        <FilterListCard />
+
+        <FilterListCard details={item.details} />
         <Button text="Show more" />
       </div>
     </StyledItem>

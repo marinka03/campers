@@ -11,13 +11,24 @@ export const StyledItem = styled.li`
   height: 358px;
 `;
 
+export const StyledImg = styled.img`
+  object-fit: cover;
+  height: 310px;
+`;
+
 export const WrapTitleCard = styled.div`
   display: flex;
   align-items: center;
-  font-weight: 600;
-  font-size: 24px;
   justify-content: space-between;
   margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 24px;
+  color: ${theme.color.main};
+  & h3 {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 125%;
+  }
 `;
 
 export const ReviewLocationWrap = styled.div`

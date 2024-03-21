@@ -5,6 +5,7 @@ import {
   NavList,
   StyledNavLink,
   StyledContentWrap,
+  Logo
 } from "./Header.styled.js";
 import { Link } from "react-router-dom";
 
@@ -14,7 +15,7 @@ function Header() {
       <div className="container">
         <StyledContentWrap className="content">
           <Link to={"/"}>
-            <span>Logo</span>
+            <Logo></Logo>
           </Link>
 
           <nav>
