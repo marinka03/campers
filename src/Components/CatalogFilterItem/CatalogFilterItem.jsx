@@ -5,7 +5,6 @@ import RatingStars from "../Stars";
 
 import {
   StyledItem,
-  ItemTextWrap,
   WrapTitleCard,
   ReviewLocationWrap,
   ReviewWrap,
@@ -18,16 +17,17 @@ function CatalogFilterItem({ item }) {
     <StyledItem key={uuid()}>
       <div
         style={{
-          width: "290px",
-          height: "310px",
           border: "1px solid",
           borderRadius: "10px",
+          overflow: "hidden",
+          width: "290px",
+          height: "310px"
         }}
       >
-        <img src={item.gallery[0]} alt="car" width={290} height={310} />
+        <img src={item.gallery[0]} alt="car"/>
       </div>
 
-      <ItemTextWrap>
+      <div>
         <WrapTitleCard>
           <h2>{item.name}</h2>
 
@@ -61,7 +61,7 @@ function CatalogFilterItem({ item }) {
         </ShortDescription>
         <FilterListCard />
         <Button text="Show more" />
-      </ItemTextWrap>
+      </div>
     </StyledItem>
   );
 }

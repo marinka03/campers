@@ -10,9 +10,6 @@ export const StyledItem = styled.li`
   width: 888px;
   height: 358px;
 `;
-export const ItemTextWrap = styled.div`
-  width: 100%;
-`;
 
 export const WrapTitleCard = styled.div`
   display: flex;
