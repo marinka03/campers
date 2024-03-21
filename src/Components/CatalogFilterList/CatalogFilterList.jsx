@@ -1,14 +1,15 @@
 import CatalogFilterItem from "../CatalogFilterItem/CatalogFilterItem";
-import campers from "../../campers.json";
 import { StyledList } from "./CatalogFilterList.styled";
+import { useSelector } from "react-redux";
+import { selectorCatalogItems } from "../../redux/selectors";
 
 function CatalogFilterList() {
-  const CAMPERS_LIST = campers;
+  const CAMPERS_LIST = useSelector(selectorCatalogItems);
   return (
     <StyledList>
       {CAMPERS_LIST.length > 0 &&
         CAMPERS_LIST.map((item, idx) => (
-            <CatalogFilterItem key={idx} item={item}/>
+          <CatalogFilterItem key={idx} item={item} />
         ))}
     </StyledList>
   );

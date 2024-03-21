@@ -1,1 +1,1 @@
-export const selectorSetVelue = (state) => state.catalog.value;
+export const selectorCatalogItems = (state) => state.catalog.items;

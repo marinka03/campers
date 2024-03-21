@@ -16,6 +16,7 @@ export const StyledContentWrap = styled.div`
   justify-content: space-between;
   align-items: center;
   height: 100%;
+  font-size: 20px;
 `;
 
 export const Logo = styled.div`
@@ -28,7 +29,7 @@ background-repeat: no-repeat;
 export const NavList = styled.ul`
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 24px;
   font-weight: 600;
 `;
 
