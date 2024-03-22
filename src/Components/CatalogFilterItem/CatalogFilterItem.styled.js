@@ -49,3 +49,9 @@ export const PriceWrap = styled.div`
   align-items: center;
   gap: 10px;
 `;
+
+export const StyledLike = styled.svg`
+width: 24px;
+height: 24px;
+cursor: pointer;
+`

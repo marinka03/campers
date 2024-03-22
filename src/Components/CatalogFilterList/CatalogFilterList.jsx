@@ -9,7 +9,7 @@ function CatalogFilterList() {
     <StyledList>
       {CAMPERS_LIST.length > 0 &&
         CAMPERS_LIST.map((item, idx) => (
-          <CatalogFilterItem key={idx} item={item} />
+          <CatalogFilterItem key={item.id} parentId={item.id}/>
         ))}
     </StyledList>
   );
