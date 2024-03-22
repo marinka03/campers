@@ -8,7 +8,7 @@ export const GlobalStyle = createGlobalStyle`
         font-family: 'Roboto', sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        background: ${theme.color.white};
+        background: #FCFCFC;
         color: ${theme.color.text};
     }
 
@@ -34,6 +34,9 @@ export const GlobalStyle = createGlobalStyle`
             width: ${theme.breakpoint.xl};
             padding: 0 56px;
         }
+    }
+    .form{
+        background-color: aqua;
     }
 
     a {

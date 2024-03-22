@@ -1,10 +1,11 @@
 import styled from "styled-components";
 import { theme } from "../../vars";
 
-export const StyledContentWrap = styled.div`
+export const StyledContentWrap = styled.section`
   display: flex;
   gap: 64px;
   margin-top: 164px;
+  margin-bottom: 100px;
 `;
 // SIDEBAR
 export const StyledSideBar = styled.aside`
@@ -15,16 +16,6 @@ export const StyledSideBar = styled.aside`
 export const FilterLocation = styled.div`
   display: flex;
   flex-direction: column;
-`;
-
-export const LocationInput = styled.input`
-  position: relative;
-  width: 360px;
-  height: 56px;
-  border-radius: 10px;
-  padding: 18px 218px 18px 18px;
-  background-color: ${theme.color.inputs};
-  border: none;
 `;
 
 export const FilterWrapCategory = styled.div`
@@ -49,11 +40,25 @@ export const EquipmentList = styled.ul`
 `;
 
 export const EquipmentItem = styled.li`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: ${theme.border.grey2};
-  border-radius: 10px;
   width: 112px;
   height: 95px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border: ${theme.border.grey2};
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 8px 12px;
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  text-align: center;
+
+  &:hover,
+  &:focus {
+    border: ${theme.border.oranage};
+  }
 `;

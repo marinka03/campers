@@ -43,4 +43,9 @@ export const StyledItem = styled.li`
   justify-content: center;
   gap: 8px;
   padding: 8px 25px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  cursor: pointer;
+  &:hover {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
 `;

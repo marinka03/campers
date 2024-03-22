@@ -1,3 +1,5 @@
+import { GrLocation } from "react-icons/gr";
+
 import Button from "../Button";
 import FilterListCard from "../FilterListCard";
 import RatingStars from "../Stars";
@@ -13,13 +15,11 @@ import {
   PriceWrap,
   StyledLike,
 } from "./CatalogFilterItem.styled";
-import { useDispatch, useSelector } from "react-redux";
-import { selectorCatalogItems } from "../../redux/selectors";
+import { useDispatch } from "react-redux";
 import { updateFavorites } from "../../redux/operations";
 
-function CatalogFilterItem({ parentId }) {
+function CatalogFilterItem({ parentId, item }) {
   const dispatch = useDispatch();
-  const items = useSelector(selectorCatalogItems);
   return (
     <StyledItem>
       <div
@@ -31,33 +31,22 @@ function CatalogFilterItem({ parentId }) {
           height: "310px",
         }}
       >
-        <StyledImg src={items[parentId]?.gallery[0]} alt="car" />
+        <StyledImg src={item.gallery[0]} alt="car" />
       </div>
 
       <div style={{ width: "520px" }}>
         <WrapTitleCard>
-          <h3>{items[parentId]?.name}</h3>
+          <h3>{item.name}</h3>
 
           <PriceWrap>
-            <span className="price">€{items[parentId]?.price}</span>
+            <span className="price">€{item.price}</span>
 
-            {/* <div>
-              {item?.favorite ? (
-                <StyledLike onClick={() => {dispatch(updateFavorites({id: parentId, favorite: false}))}}>
-                  <use href={`${sprite}#favorite`} />
-                </StyledLike>
-              ) : (
-                <StyledLike onClick={() => {dispatch(updateFavorites({id: parentId, favorite: true}))}}>
-                  <use href={`${sprite}#not-favorite`} />
-                </StyledLike>
-              )}
-            </div> */}
             <div>
-              {items[parentId]?.favorite ? (
+              {item.favorite ? (
                 <StyledLike
                   onClick={() => {
                     dispatch(
-                      updateFavorites({ 'id': parentId, 'favorite': false })
+                      updateFavorites({ id: parentId, favorite: false })
                     );
                   }}
                 >
@@ -66,7 +55,7 @@ function CatalogFilterItem({ parentId }) {
               ) : (
                 <StyledLike
                   onClick={() => {
-                    dispatch(updateFavorites({ 'id': parentId, 'favorite': true }));
+                    dispatch(updateFavorites({ id: parentId, favorite: true }));
                   }}
                 >
                   <use href={`${sprite}#not-favorite`} />
@@ -85,21 +74,22 @@ function CatalogFilterItem({ parentId }) {
               classNames={"star-rewiew"}
             />
             <span style={{ textDecoration: "underline" }}>
-              {items[parentId]?.rating}({items[parentId]?.reviews.length} Reviews)
+              {item.rating}({item.reviews.length} Reviews)
             </span>
           </ReviewWrap>
           <div>
-            <span>{items[parentId]?.location}</span>
+            <GrLocation />
+            <span>{item.location}</span>
           </div>
         </ReviewLocationWrap>
 
         <ShortDescription>
-          {items[parentId]?.description?.length > 70
-            ? `${items[parentId]?.description.slice(0, 70)}...`
-            : items[parentId]?.description}
+          {item.description?.length > 70
+            ? `${item.description.slice(0, 70)}...`
+            : item.description}
         </ShortDescription>
 
-        <FilterListCard  />
+        <FilterListCard details={item.details} />
         <Button text="Show more" />
       </div>
     </StyledItem>

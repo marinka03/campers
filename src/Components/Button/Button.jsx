@@ -1,8 +1,8 @@
 import {StyledButton} from './Button.styled.js'
 
-function Button({text}) {
+function Button({text, onClick}) {
   return (
-    <StyledButton>{text}</StyledButton>
+    <StyledButton onClick={onClick}>{text}</StyledButton>
   )
 }
 

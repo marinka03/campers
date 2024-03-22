@@ -1,7 +1,11 @@
 import { v4 as uuid } from "uuid";
 import { StyledItem, StyledList } from "./FilterListCard.styled";
-import { selectorCatalogItems } from "../../redux/selectors";
-import { useSelector } from "react-redux";
+// import { selectorCatalogItems } from "../../redux/selectors";
+// import { useSelector } from "react-redux";
+import { PiTelevisionLight } from "react-icons/pi";
+import { LuShowerHead } from "react-icons/lu";
+import { LiaGasPumpSolid } from "react-icons/lia";
+import sprite from "../../assets/icons/icons-sprite.svg";
 
 const ABBREVIATION_STR = ["TV", "CD", "AC"];
 
@@ -16,23 +20,60 @@ const convertToNormalStr = (str) => {
   }
 };
 
-function FilterListCard() {
-  const items = useSelector(selectorCatalogItems);
-  
-  const arrFilter = Object.entries(items).map((item, id) =>
-    item[1] > 0 ? convertToNormalStr(item[0]) : ""
-  ); // FOR EXAMPLE
+function FilterListCard({ details }) {
+  const arrFilter = Object.entries(details)
+    .filter((item, id) => typeof item[1] !== "string" && item[1] > 0)
+    .map((item) => [convertToNormalStr(item[0]), item[1]]);
   return (
     <StyledList>
-      {arrFilter.length > 7 ? arrFilter.slice(0,7)
-      .filter((item) => item !== "")
-        .map((item, idx) => (
-          <StyledItem key={uuid()}>{item}</StyledItem> //mojna class 
-        )) :
-        arrFilter.filter((item) => item !== "")
-          .map((item) => (
-            <StyledItem key={uuid()}>{item}</StyledItem>
-          ))}
+      {arrFilter.length > 7
+        ? arrFilter
+            .slice(0, 7)
+            .filter((item) => item !== "")
+            .map((item, idx) => (
+              <StyledItem key={uuid()}>
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    gap: "4px",
+                  }}
+                >
+                  {item[0] === "TV" && <PiTelevisionLight size={20} />}
+                  {item[0] === "Shower" && <LuShowerHead />}
+                  {item[0] === "Petrol" && <LiaGasPumpSolid />}
+                  {item[0] !== "TV" &&
+                    item[0] !== "Shower" &&
+                    item[0] !== "Bathroom" && (
+                      <svg width={20} height={20}>
+                        <use href={`${sprite}#${item[0].toLowerCase()}`} />
+                      </svg>
+                    )}
+
+                  {item[1] > 1 && item[1]}
+                  <span>{item[0]}</span>
+                </div>
+              </StyledItem> //mojna class
+            ))
+        : arrFilter
+            .filter((item) => item !== "")
+            .map((item) => (
+              <StyledItem key={uuid()}>
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    gap: "4px",
+                  }}
+                >
+                  <svg width={20} height={20}>
+                    <use href={`${sprite}#${item[0].toLowerCase()}`} />
+                  </svg>
+                  {/* {item[1] > 1 && (<span>{`${item[1]}`}</span>)} */}
+                  <span>{item[0]}</span>
+                </div>
+              </StyledItem>
+            ))}
     </StyledList>
   );
 }

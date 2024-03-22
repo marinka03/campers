@@ -30,19 +30,9 @@ function HomePage() {
             as they can stop in different places away from the urban noise.
           </StyledItem>
           <StyledItem>
-            <b>New Experiences and Adventures: </b>
-            Camper travel opens up new opportunities for discovery and
-            exploration of different places and landscapes.
-          </StyledItem>
-          <StyledItem>
             <b>Family and Friendly Atmosphere: </b>
             Camper travel is a great option for family vacations or trips with
             friends, fostering bonding and shared adventures.
-          </StyledItem>
-          <StyledItem>
-            <b>Group Travel and Gatherings: </b>
-            Campers allow for more people to travel together and explore
-            together, creating unforgettable memories and experiences.
           </StyledItem>
           <StyledItem>
             <b>Environmental Awareness: </b>

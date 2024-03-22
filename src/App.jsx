@@ -7,6 +7,7 @@ import AppLayout from "./Components/AppLayout";
 import Favorites from "./Pages/Favorites";
 
 const App = () => {
+  
   return (
     <Routes>
       <Route path="/" element={<AppLayout />}>

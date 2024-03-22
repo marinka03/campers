@@ -4,6 +4,7 @@
   "homepage": "https://marinka03.github.io/campers",
   "private": true,
   "dependencies": {
+    "@amraneze/osm-autocomplete": "^0.0.6",
     "@reduxjs/toolkit": "^2.2.2",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",

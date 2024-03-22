@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { AllItems, currentItems, updateFavorites } from "./operations";
+import { allItems, currentItems, updateFavorites } from "./operations";
 
 const initialState = {
   allItems: [],
   items: [],
+  page: 1,
   isLoading: false,
   errorMessage: "",
 };
@@ -13,14 +14,17 @@ const catalogSlice = createSlice({
   initialState,
   extraReducers: (builder) => {
     builder
-      .addCase(AllItems.fulfilled, (state, action) => {
+      .addCase(allItems.fulfilled, (state, action) => {
         state.allItems = action.payload;
       })
       .addCase(currentItems.fulfilled, (state, action) => {
-        state.items = action.payload;
+        state.items =
+          state.items?.length > 0
+            ? [...state.items, ...action.payload.data]
+            : action.payload.data;
+        state.page = action.payload.page;
       })
       .addCase(updateFavorites.fulfilled, (state, action) => {
-        //  void( state.items = [...state.items, {...action.payload}]
         state.items = state.items.map((item, idx) => {
           if (item.name !== action.payload.name) {
             return item;
@@ -28,21 +32,7 @@ const catalogSlice = createSlice({
           return action.payload;
         });
       });
-    // const index = indexOf state.items[action.payload]
-
-    //   const I = state.items.find((item, idx)=> item[idx] === action.payload)
-    // state.items = state.items
-    // void( state.items = [...state.items, {...action.payload}]);
-    //   state.items  = state.items.map((item, idx)=>{
-    //     if(item.name !== action.payload.name){
-    //       return item
-    //     }
-    //     return action.payload
-    //   })
-
-    // })
   },
 });
 
-// export const { currentItems, updateFavorites } = catalogSlice.actions;
 export const catalogReducer = catalogSlice.reducer;
