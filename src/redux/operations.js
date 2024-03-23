@@ -26,7 +26,7 @@ export const currentItems = createAsyncThunk(
   "catalog/currentItems",
   async (data, thunkAPI) => {
     try {
-      const res = await axios(`campers/?page=${data.page}&limit=4`);
+      const res = await axios(`campers/?page=${data.page}&limit=4&filter=`);
       console.log("res", res.data);
       return {data: res.data, page: data.page};
     } catch (error) {
@@ -39,8 +39,8 @@ export const updateFavorites = createAsyncThunk(
   "catalog/updateFavorites",
   async (data, thunkAPI) => {
     try {
-      console.log("cat", JSON.stringify({ favorite: data.favorite }));
-      console.log( JSON.stringify({ favorite: data.favorite }))
+      // console.log("cat", JSON.stringify({ favorite: data.favorite }));
+      // console.log( JSON.stringify({ favorite: data.favorite }))
       const response = await axios.put(
         `campers/${data.id}`,
         { favorite: data.favorite }
@@ -56,3 +56,7 @@ export const updateFavorites = createAsyncThunk(
     }
   }
 );
+
+// items.map((el)=>{
+//   el.gallery[0]
+// })

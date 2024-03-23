@@ -2,7 +2,7 @@ import CatalogFilterItem from "../CatalogFilterItem/CatalogFilterItem";
 import { StyledList } from "./CatalogFilterList.styled";
 import { useDispatch, useSelector } from "react-redux";
 import { selectorCatalogItems } from "../../redux/selectors";
-import { currentItems } from "../../redux/operations";
+import { allItems, currentItems } from "../../redux/operations";
 import BtnWhite from "../BtnWhite";
 import { useEffect, useState } from "react";
 
@@ -16,9 +16,12 @@ function CatalogFilterList() {
     if (currentPage === 0) {
       dispatch(currentItems({ page: currentPage + 1 }));
       setCount(1);
-      console.log("Hello World");
     }
-  }, [currentPage]);
+  }, [currentPage, dispatch]);
+
+  // useEffect(()=>{
+  //   dispatch(allItems);
+  // }, [])
   return (
     <>
       <div

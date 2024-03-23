@@ -24,9 +24,10 @@ function FilterListCard({ details }) {
   const arrFilter = Object.entries(details)
     .filter((item, id) => typeof item[1] !== "string" && item[1] > 0)
     .map((item) => [convertToNormalStr(item[0]), item[1]]);
+    
   return (
     <StyledList>
-      {arrFilter.length > 7
+      {arrFilter.length > 7 ////ADD IF FOR MODAL TO SHOW ALL ITEMS
         ? arrFilter
             .slice(0, 7)
             .filter((item) => item !== "")

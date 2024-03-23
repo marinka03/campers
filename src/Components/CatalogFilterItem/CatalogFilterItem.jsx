@@ -1,6 +1,4 @@
 import { GrLocation } from "react-icons/gr";
-
-import Button from "../Button";
 import FilterListCard from "../FilterListCard";
 import RatingStars from "../Stars";
 import sprite from "../../assets/icons/icons-sprite.svg";
@@ -17,12 +15,10 @@ import {
 } from "./CatalogFilterItem.styled";
 import { useDispatch } from "react-redux";
 import { updateFavorites } from "../../redux/operations";
-import { useLocation } from "react-router-dom";
+import TransitionsModal from "../Modal/TransitionsModal";
 
-function CatalogFilterItem({ parentId, item, onClickLike }) {
+function CatalogFilterItem({ parentId, item }) {
   const dispatch = useDispatch();
-  const { pathname } = useLocation();
-  const isFavoritePage = pathname === "/favorites";
   const { favorite } = item;
 
   return (
@@ -51,11 +47,7 @@ function CatalogFilterItem({ parentId, item, onClickLike }) {
                 <StyledLike
                   onClick={() => {
                     dispatch(
-                      updateFavorites({ id: parentId, favorite: false })
-                    );
-                    if (isFavoritePage) {
-                      onClickLike(parentId);
-                    }
+                      updateFavorites({ id: parentId, favorite: false }));
                   }}
                 >
                   <use href={`${sprite}#favorite`} />
@@ -98,7 +90,7 @@ function CatalogFilterItem({ parentId, item, onClickLike }) {
         </ShortDescription>
 
         <FilterListCard details={item.details} />
-        <Button text="Show more" />
+        <TransitionsModal item={item} />
       </div>
     </StyledItem>
   );

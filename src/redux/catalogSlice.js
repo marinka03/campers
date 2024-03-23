@@ -34,6 +34,9 @@ const catalogSlice = createSlice({
           }
           return action.payload;
         });
+        state.favorites = action.payload.favorite
+          ? [...state.favorites, action.payload]
+          : state.favorites.filter((item) => item.id !== action.payload.id);
       });
   },
 });
