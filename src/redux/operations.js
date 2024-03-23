@@ -1,6 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "../axios";
-
 // import toast from "react-hot-toast"
 
 // const getOption = {
@@ -28,7 +27,7 @@ export const currentItems = createAsyncThunk(
   async (data, thunkAPI) => {
     try {
       const res = await axios(`campers/?page=${data.page}&limit=4`);
-      console.dir(res.data);
+      console.log("res", res.data);
       return {data: res.data, page: data.page};
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -41,9 +40,10 @@ export const updateFavorites = createAsyncThunk(
   async (data, thunkAPI) => {
     try {
       console.log("cat", JSON.stringify({ favorite: data.favorite }));
+      console.log( JSON.stringify({ favorite: data.favorite }))
       const response = await axios.put(
         `campers/${data.id}`,
-        JSON.stringify({ favorite: data.favorite })
+        { favorite: data.favorite }
       );
       if (response.status !== 200) {
         console.log("Error");

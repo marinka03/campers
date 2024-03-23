@@ -17,9 +17,14 @@ import {
 } from "./CatalogFilterItem.styled";
 import { useDispatch } from "react-redux";
 import { updateFavorites } from "../../redux/operations";
+import { useLocation } from "react-router-dom";
 
-function CatalogFilterItem({ parentId, item }) {
+function CatalogFilterItem({ parentId, item, onClickLike }) {
   const dispatch = useDispatch();
+  const { pathname } = useLocation();
+  const isFavoritePage = pathname === "/favorites";
+  const { favorite } = item;
+
   return (
     <StyledItem>
       <div
@@ -42,12 +47,15 @@ function CatalogFilterItem({ parentId, item }) {
             <span className="price">€{item.price}</span>
 
             <div>
-              {item.favorite ? (
+              {favorite ? (
                 <StyledLike
                   onClick={() => {
                     dispatch(
                       updateFavorites({ id: parentId, favorite: false })
                     );
+                    if (isFavoritePage) {
+                      onClickLike(parentId);
+                    }
                   }}
                 >
                   <use href={`${sprite}#favorite`} />

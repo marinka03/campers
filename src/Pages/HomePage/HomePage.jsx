@@ -1,11 +1,45 @@
-import { StyledSection, Bg,StyledSecondTitle, StyledList, StyledItem } from "./HomePage.styled.js";
+import { theme } from "../../vars.js";
+import {
+  StyledSection,
+  Bg,
+  StyledSecondTitle,
+  StyledList,
+  StyledItem,
+} from "./HomePage.styled.js";
 
 function HomePage() {
   return (
     <>
       <StyledSection>
-        <h1>Welcome</h1>
-        <Bg />
+        <h1>Welcome to our team.</h1>
+
+        <div style={{ display: "flex", justifyContent: "space-around" }}>
+          <Bg />
+          <div
+            style={{
+              width: "762px",
+              height: "325px",
+              fontSize: "20px",
+              padding: "25px 40px",
+              border: `3px solid ${theme.color.button}`,
+              borderRadius: "32px",
+            }}
+          >
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed nam
+              laborum odio sit cupiditate voluptatibus minus aut laboriosam
+              saepe? Eos, cumque? Temporibus esse quo voluptates deserunt!
+              Consectetur, quidem. Reprehenderit vitae earum perspiciatis ipsam
+              necessitatibus, quae, delectus velit laudantium quaerat tenetur
+              recusandae alias nulla labore animi accusantium vero libero, error
+              optio nostrum dolore voluptatum commodi provident. Lorem ipsum
+              dolor sit amet consectetur adipisicing elit. Iste consectetur
+              ipsam doloremque distinctio! Vitae consectetur tenetur omnis cum
+              quod recusandae commodi dolorum molestias, saepe numquam fuga
+              ipsum architecto similique repellat.
+            </p>
+          </div>
+        </div>
         <StyledSecondTitle>Our advantages</StyledSecondTitle>
         <StyledList>
           <StyledItem>

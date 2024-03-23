@@ -7,14 +7,13 @@ import AppLayout from "./Components/AppLayout";
 import Favorites from "./Pages/Favorites";
 
 const App = () => {
-  
   return (
     <Routes>
       <Route path="/" element={<AppLayout />}>
         <Route index element={<HomePage />} />
         <Route path="catalog" element={<CatalogPage />} />
-        <Route path="favorites" element={<Favorites/>} />
-        <Route path="*" element={<HomePage/>}/>
+        <Route path="favorites" element={<Favorites />} />
+        <Route path="*" element={<HomePage />} />
       </Route>
     </Routes>
   );
