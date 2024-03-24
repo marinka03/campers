@@ -25,7 +25,9 @@ function HomePage() {
             special? Our campers are not just vehicles, they are your homes on
             wheels, accompanying you on all your adventures. Whether you are
             traveling as a couple, with family, or with friends, we have the
-            perfect camper to meet your needs and desires. 
+            perfect camper to meet your needs and desires. So, if you dream of
+            exciting travels and new experiences, turn to "Campers" and
+            let us make your next journey the best one yet!
           </WelcomeDescriptionText>
         </WelcomeDescription>
         <StyledSecondTitle>What we offer:</StyledSecondTitle>
@@ -52,9 +54,6 @@ function HomePage() {
             or issues during your journey.
           </StyledItem>
         </StyledList>
-        <p>So, if you dream of
-            exciting travels and new experiences, turn to "Campers" and
-            let us make your next journey the best one yet!</p>
       </StyledSection>
     </>
   );
