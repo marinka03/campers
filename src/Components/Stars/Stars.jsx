@@ -1,5 +1,5 @@
 import { v4 as uuid } from "uuid";
-import { theme } from "../../vars";
+// import { theme } from "../../vars";
 
 const BLOATED_STAR_CONFIG = {
   path: `M12.7068 0.996094L16.422 8.64029L24.8252 9.88469L18.8103 15.8401L20.2255 24.2842L12.7068 20.2843L5.18813 24.2842L6.60342 15.8401L0.5 9.88469L8.90326 8.64029L12.7068 0.996094Z`,
@@ -9,7 +9,7 @@ const BLOATED_STAR_CONFIG = {
 const RatingStars = ({ stars_count, rating, spacing, classNames }) => {
   const size = "16px";
   const activeStarColor = "#FFC531";
-  const emptiStarColor = `${theme.color.block_features}`;
+  const emptiStarColor = 'gray';
   const maskId = uuid();
   const letterSpacing = { marginRight: `${spacing}px` };
   const [whole, fraction] = parseFloat(rating).toFixed(1).split(".");

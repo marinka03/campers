@@ -1,8 +1,10 @@
 import React from "react";
-import { theme } from "../../vars";
+// import { theme } from "../../vars";
 import Button from "../Button";
 import {
   FormWrap,
+  FormList,
+  FormTitle,
   StyledFormInput,
   StyledCommentTextarea,
 } from "./Form.styled";
@@ -11,18 +13,11 @@ function Form() {
   return (
     <FormWrap>
       <form>
-        <p>Book your campervan now</p>
+        <FormTitle>Book your campervan now</FormTitle>
         <p style={{ marginBottom: "24px" }}>
           Stay connected! We are always ready to help you.
         </p>
-        <ul
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            gap: "14px",
-            marginBottom: "24px",
-          }}
-        >
+        <FormList>
           <li>
             <StyledFormInput
               type="text"
@@ -55,12 +50,10 @@ function Form() {
               name="comment"
               id="comment"
               required
-              cols="30"
-              rows="10 "
               placeholder="Comment"
             ></StyledCommentTextarea>
           </li>
-        </ul>
+        </FormList>
         <Button text="Send" />
       </form>
     </FormWrap>

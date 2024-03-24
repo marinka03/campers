@@ -4,8 +4,16 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { useState } from "react";
 import FilterListCard from "../FilterListCard";
-import Button from "../Button";
+// import Button from "../Button";
 import Form from "../Form/Form";
+import {
+  TabWrapper,
+  TabContentWrap,
+  DetailsTitle,
+  DetailsList,
+  DetailsItem,
+} from "./ModalTabs.styled";
+import RatingStars from "../Stars/Stars";
 // import { Button } from "@mui/material";
 // import { theme } from "../../vars";
 // import { createTheme } from '@mui/material/styles';
@@ -25,7 +33,17 @@ import Form from "../Form/Form";
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
+  // Отримуємо посилання на елемент з тегом <p>
+  // const paragraphElement = document.getElementsByClassName('css-ahj2mt-MuiTypography-root');
 
+  // // Створюємо новий елемент з тегом <div>
+  // const divElement = document.createElement('div');
+
+  // // Копіюємо вміст елемента <p> до елемента <div>
+  // divElement.innerHTML = paragraphElement.innerHTML;
+
+  // // Замінюємо елемент <p> на новий елемент <div>
+  // paragraphElement.parentNode.replaceChild(divElement, paragraphElement);
   return (
     <div
       role="tabpanel"
@@ -56,6 +74,7 @@ export default function BasicTabs({ item }) {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+  console.log(item.reviews);
 
   return (
     <Box sx={{ width: "100%" }}>
@@ -70,49 +89,63 @@ export default function BasicTabs({ item }) {
           <Tab label="Reviews" {...a11yProps(1)} />
         </Tabs>
       </Box>
-      <CustomTabPanel value={value} index={0}>
-        <div style={{ display: "flex", gap: "24px", justifyContent: 'space-between' }}>
-          <div className="content" style={{ width: "430px", height: "530px" }}>
+      <CustomTabPanel value={value} index={0} component={"span"}>
+        <TabWrapper>
+          <TabContentWrap>
             <FilterListCard details={item.details}></FilterListCard>
-            <p>Vehicle details</p>
-            <ul style={{ display: "flex", flexDirection: "column" }}>
-              <li style={{ display: "flex", justifyContent: "space-between" }}>
-                <div>Form</div>
-                <div>{item.form}</div>
-              </li>
-              <li style={{ display: "flex", justifyContent: "space-between" }}>
-                <div>Length</div>
-                <div>{item.length}</div>
-              </li>
-              <li style={{ display: "flex", justifyContent: "space-between" }}>
-                <div>Width</div>
-                <div>{item.width}</div>
-              </li>
-              <li style={{ display: "flex", justifyContent: "space-between" }}>
-                <div>Height</div>
-                <div>{item.height}</div>
-              </li>
-              <li style={{ display: "flex", justifyContent: "space-between" }}>
-                <div>Tank</div>
-                <div>{item.tank}</div>
-              </li>
-              <li style={{ display: "flex", justifyContent: "space-between" }}>
-                <div>Consumption</div>
-                <div>{item.consumption}</div>
-              </li>
+            <DetailsTitle>Vehicle details</DetailsTitle>
+            <DetailsList>
+              <DetailsItem>
+                <p>Form</p>
+                <p>{item.form}</p>
+              </DetailsItem>
+              <DetailsItem>
+                <p>Length</p>
+                <p>{item.length}</p>
+              </DetailsItem>
+              <DetailsItem>
+                <p>Width</p>
+                <p>{item.width}</p>
+              </DetailsItem>
+              <DetailsItem>
+                <p>Height</p>
+                <p>{item.height}</p>
+              </DetailsItem>
+              <DetailsItem>
+                <p>Tank</p>
+                <p>{item.tank}</p>
+              </DetailsItem>
+              <DetailsItem>
+                <p>Consumption</p>
+                <p>{item.consumption}</p>
+              </DetailsItem>
+            </DetailsList>
+          </TabContentWrap>
+
+          <Form />
+        </TabWrapper>
+      </CustomTabPanel>
+
+      <CustomTabPanel value={value} index={1} component={"span"}>
+        <TabWrapper>
+          <div className="content" style={{ width: "430px", height: "530px" }}>
+            <ul style={{display:"flex", flexDirection: 'column', gap: '24px'}}>
+              {item.reviews.map((user) => (
+                <li>
+                  <div>
+                    <div>avatar</div>
+                    <div>
+                      <p>{user.reviewer_name}</p>
+                      <RatingStars count={5} rating={user.reviewer_rating} spacing={4} classNames='tab-rating-stars' />
+                    </div>
+                  </div>
+                  <p>{user.comment}</p>
+                </li>
+              ))}
             </ul>
           </div>
           <Form />
-        </div>
-      </CustomTabPanel>
-      <CustomTabPanel value={value} index={1}>
-        <div style={{ display: "flex", gap: "24px", justifyContent: "space-between" }}>
-          <div
-            className="content"
-            style={{ width: "430px", height: "530px" }}
-          ></div>
-          <Form />
-        </div>
+        </TabWrapper>
       </CustomTabPanel>
     </Box>
   );

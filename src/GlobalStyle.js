@@ -35,9 +35,15 @@ export const GlobalStyle = createGlobalStyle`
             padding: 0 56px;
         }
     }
+    
     .MuiTabs-indicator{
         background-color: red;
     }
+
+    .css-19kzrtu{
+        padding: 44px 0 0 0;
+    }
+
     .form{
         background-color: aqua;
     }

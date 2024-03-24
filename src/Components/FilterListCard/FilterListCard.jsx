@@ -24,7 +24,7 @@ function FilterListCard({ details }) {
   const arrFilter = Object.entries(details)
     .filter((item, id) => typeof item[1] !== "string" && item[1] > 0)
     .map((item) => [convertToNormalStr(item[0]), item[1]]);
-    
+
   return (
     <StyledList>
       {arrFilter.length > 7 ////ADD IF FOR MODAL TO SHOW ALL ITEMS
@@ -70,7 +70,6 @@ function FilterListCard({ details }) {
                   <svg width={20} height={20}>
                     <use href={`${sprite}#${item[0].toLowerCase()}`} />
                   </svg>
-                  {/* {item[1] > 1 && (<span>{`${item[1]}`}</span>)} */}
                   <span>{item[0]}</span>
                 </div>
               </StyledItem>
