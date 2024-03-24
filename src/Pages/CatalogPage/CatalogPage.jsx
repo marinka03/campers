@@ -1,9 +1,9 @@
 import CatalogFilterList from "../../Components/CatalogFilterList/CatalogFilterList";
-import { OpenStreetMapAutocomplete } from "@amraneze/osm-autocomplete";
 import { MdAir } from "react-icons/md";
 import {
   StyledSideBar,
   FilterLocation,
+  LocationText,
   FilterWrapCategory,
   StyledContentWrap,
   FilterTitleCategory,
@@ -12,23 +12,27 @@ import {
 } from "./CatalogPage.styled";
 import Button from "../../Components/Button";
 import sprite from "../../assets/icons/icons-sprite.svg";
+import AutoCompleteCity from "../../Components/AutoCompleteCity";
+import { IoLocationOutline } from "react-icons/io5";
 
 function CatalogPage() {
-  const handleChange = (e) => {
-    console.dir(e);
-    console.dir(e.display_name);
-  };
   return (
     <>
       <StyledContentWrap>
         <StyledSideBar>
-          <FilterLocation>
-            <div style={{ marginBottom: "10px" }}>
-              <OpenStreetMapAutocomplete
-                value={null}
-                onChange={handleChange}
-                placeholder="City"
-              />
+          <FilterLocation style={{ position: "relative" }}>
+            <IoLocationOutline
+              style={{
+                position: "absolute",
+                zIndex: 20,
+                top: "42px",
+                left: "18px",
+              }}
+              size={20}
+            />
+            <div style={{ marginBottom: "32px" }}>
+              <LocationText>Location</LocationText>
+              <AutoCompleteCity />
             </div>
 
             <div>

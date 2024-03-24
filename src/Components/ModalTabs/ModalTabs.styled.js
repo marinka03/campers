@@ -5,6 +5,33 @@ export const TabWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   gap: 24px;
+  padding-top: 44px;
+`;
+
+export const UsersReviewsList = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+`;
+
+export const UserInfoWrap = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+`;
+
+export const StyledAvatarCircle = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  background-color: ${theme.color.block_features};
+  font-weight: 600;
+  font-size: 24px;
+  color: ${theme.color.button};
 `;
 
 export const TabContentWrap = styled.div`

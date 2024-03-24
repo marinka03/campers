@@ -2,6 +2,26 @@ import styled from "styled-components";
 import assets from "../../assets/pinterest_profile_image.png";
 import { theme } from "../../vars";
 
+
+export const TitleAboutUs = styled.h1`
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 44px;
+    color: orangered;
+`
+
+export const WelcomeDescription = styled.div`
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 100px;
+`;
+
+export const WelcomeDescriptionText = styled.div`
+  width: 762px;
+  height: 325px;
+  font-size: 20px;
+`;
+
 export const Bg = styled.div`
   background-image: url(${assets});
   height: 500px;
@@ -22,6 +42,7 @@ export const StyledSecondTitle = styled.h2`
   margin-bottom: 50px;
   color: black;
   font-size: 28px;
+  color: orangered;
 `;
 
 export const StyledList = styled.ul`
@@ -34,7 +55,7 @@ export const StyledList = styled.ul`
 
 export const StyledItem = styled.li`
   border-radius: 20px;
-  width: 300px;
+  width: 460px;
   height: 200px;
   background-color: ${theme.color.block_features};
   display: flex;
@@ -47,5 +68,6 @@ export const StyledItem = styled.li`
   cursor: pointer;
   &:hover {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border: 2px solid orangered;
   }
 `;

@@ -1,7 +1,5 @@
 import { v4 as uuid } from "uuid";
 import { StyledItem, StyledList } from "./FilterListCard.styled";
-// import { selectorCatalogItems } from "../../redux/selectors";
-// import { useSelector } from "react-redux";
 import { PiTelevisionLight } from "react-icons/pi";
 import { LuShowerHead } from "react-icons/lu";
 import { LiaGasPumpSolid } from "react-icons/lia";
@@ -27,7 +25,7 @@ function FilterListCard({ details }) {
 
   return (
     <StyledList>
-      {arrFilter.length > 7 ////ADD IF FOR MODAL TO SHOW ALL ITEMS
+      {arrFilter.length > 7
         ? arrFilter
             .slice(0, 7)
             .filter((item) => item !== "")
@@ -54,7 +52,7 @@ function FilterListCard({ details }) {
                   {item[1] > 1 && item[1]}
                   <span>{item[0]}</span>
                 </div>
-              </StyledItem> //mojna class
+              </StyledItem>
             ))
         : arrFilter
             .filter((item) => item !== "")
@@ -67,9 +65,16 @@ function FilterListCard({ details }) {
                     gap: "4px",
                   }}
                 >
-                  <svg width={20} height={20}>
-                    <use href={`${sprite}#${item[0].toLowerCase()}`} />
-                  </svg>
+                  {item[0] === "TV" && <PiTelevisionLight size={20} />}
+                  {item[0] === "Shower" && <LuShowerHead />}
+                  {item[0] === "Petrol" && <LiaGasPumpSolid />}
+                  {item[0] !== "TV" &&
+                    item[0] !== "Shower" &&
+                    item[0] !== "Bathroom" && (
+                      <svg width={20} height={20}>
+                        <use href={`${sprite}#${item[0].toLowerCase()}`} />
+                      </svg>
+                    )}
                   <span>{item[0]}</span>
                 </div>
               </StyledItem>

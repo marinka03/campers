@@ -36,12 +36,50 @@ export const GlobalStyle = createGlobalStyle`
         }
     }
     
-    .MuiTabs-indicator{
-        background-color: red;
+    .tab-list{
+        border: none;
+        border-bottom: ${theme.border.grey2};
+        display: flex;
+        gap: 40px;
+    }
+
+    .tab-item{
+        font-weight: 600;
+        font-size: 20px;
+        border-bottom: red;
+        padding-bottom: 24px;
+        
+        &:focus{
+            border-bottom: 5px solid ${theme.color.button};
+        }
+    }
+    
+    .active-tab{
+        border-bottom: 5px solid ${theme.color.button};
+    }
+
+    .tab-panel{
+        border: none;
+        border-bottom: red;
     }
 
     .css-19kzrtu{
         padding: 44px 0 0 0;
+    }
+    .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root{
+        padding-left: 30px;
+    }
+    .MuiAutocomplete-hasPopupIcon.css-84nhb1-MuiAutocomplete-root .MuiOutlinedInput-root{
+        padding-right: 9px;
+        padding-left: 43px;
+    }
+    .MuiAutocomplete-inputRoot{
+        background-color: ${theme.color.inputs};
+        /* padding-left: 44px; */
+    }
+
+    .css-i4bv87-MuiSvgIcon-root{
+        display: none;
     }
 
     .form{

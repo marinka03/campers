@@ -4,15 +4,19 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
 import Typography from "@mui/material/Typography";
-import CloseIcon from "@mui/icons-material/Close";
+import { IoCloseSharp } from "react-icons/io5";
 import Button from "../Button";
-import {
-  ReviewLocationWrap,
-  ReviewWrap,
-} from "../CatalogFilterItem/CatalogFilterItem.styled";
+import { ReviewWrap } from "../CatalogFilterItem/CatalogFilterItem.styled";
 import RatingStars from "../Stars/Stars";
 import { GrLocation } from "react-icons/gr";
 import BasicTabs from "../ModalTabs/ModalTabs";
+import {
+  ReviewLocationWrap,
+  GallaryList,
+  GallaryItem,
+  GallaryImg,
+  StyledPrice,
+} from "./TransitionsModal.styled";
 
 const style = {
   position: "absolute",
@@ -68,7 +72,7 @@ export default function TransitionsModal({ item }) {
               >
                 {item.name}
               </Typography>
-              <CloseIcon onClick={handleClose} />
+              <IoCloseSharp onClick={handleClose} size={32} />
             </div>
 
             <ReviewLocationWrap>
@@ -88,79 +92,27 @@ export default function TransitionsModal({ item }) {
                 <span>{item.location}</span>
               </div>
             </ReviewLocationWrap>
-            <span className="price">€{item.price}</span>
-            <div>
-              <ul
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  gap: "16px",
-                }}
-              >
-                <li
-                  style={{
-                    display: "block",
-                    borderRadius: "20px",
-                    width: "290px",
-                    height: "310px",
-                    overflow: "hidden",
-                  }}
-                >
-                  <img
-                    src={item.gallery[0]}
-                    alt="ghf"
-                    style={{
-                      width: "290px",
-                      height: "310px",
-                      objectFit: "none",
-                    }}
-                  />
-                </li>
-                <li
-                  style={{
-                    display: "block",
-                    borderRadius: "20px",
-                    width: "290px",
-                    height: "310px",
-                    overflow: "hidden",
-                  }}
-                >
-                  <img
-                    src={item.gallery[1]}
-                    alt="ghj"
-                    style={{
-                      width: "290px",
-                      height: "310px",
-                      objectFit: "none",
-                    }}
-                  />
-                </li>
-                <li
-                  style={{
-                    display: "block",
-                    borderRadius: "20px",
-                    width: "290px",
-                    height: "310px",
-                    overflow: "hidden",
-                  }}
-                >
-                  <img
-                    src={item.gallery[2]}
-                    alt="hg"
-                    style={{
-                      width: "290px",
-                      height: "310px",
-                      objectFit: "none",
-                    }}
-                  />
-                </li>
-              </ul>
-            </div>
+            <StyledPrice className="price">€{item.price}</StyledPrice>
 
-            <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-              {item.description}
-            </Typography>
-            <BasicTabs item={item}/>
+            <div>
+              {/* //style={{ overflow: "scroll" }} */}
+              <GallaryList>
+                <GallaryItem>
+                  <GallaryImg src={item.gallery[0]} alt="ghf" />
+                </GallaryItem>
+                <GallaryItem>
+                  <GallaryImg src={item.gallery[1]} alt="ghj" />
+                </GallaryItem>
+                <GallaryItem>
+                  <GallaryImg src={item.gallery[2]} alt="hg" />
+                </GallaryItem>
+              </GallaryList>
+
+              <Typography id="transition-modal-description" sx={{ mt: 2 }}>
+                {item.description}
+              </Typography>
+              <BasicTabs item={item} />
+            </div>
           </Box>
         </Fade>
       </Modal>

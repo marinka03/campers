@@ -7,7 +7,12 @@ export const StyledContentWrap = styled.section`
   margin-top: 164px;
   margin-bottom: 100px;
 `;
-// SIDEBAR
+
+export const LocationText = styled.span`
+  display: block;
+  margin-bottom: 8px;
+`;
+
 export const StyledSideBar = styled.aside`
   width: 360px;
   height: 740px;

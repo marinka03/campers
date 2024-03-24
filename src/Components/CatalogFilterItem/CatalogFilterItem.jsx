@@ -47,7 +47,8 @@ function CatalogFilterItem({ parentId, item }) {
                 <StyledLike
                   onClick={() => {
                     dispatch(
-                      updateFavorites({ id: parentId, favorite: false }));
+                      updateFavorites({ id: parentId, favorite: false })
+                    );
                   }}
                 >
                   <use href={`${sprite}#favorite`} />

@@ -1,5 +1,4 @@
 import React from "react";
-// import { theme } from "../../vars";
 import Button from "../Button";
 import {
   FormWrap,

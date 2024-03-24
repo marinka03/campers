@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { theme } from "../../vars";
 
 export const StyledBtnWhite = styled.button`
-width: 173px;
+  width: 173px;
   height: 56px;
   border: ${theme.border.grey2};
   border-radius: 200px;
@@ -13,6 +13,6 @@ width: 173px;
   cursor: pointer;
   transition: 0.5s;
   &:hover {
-    border: ${theme.border.oranage };
+    border: ${theme.border.oranage};
   }
-`
+`;

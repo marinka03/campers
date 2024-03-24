@@ -51,7 +51,7 @@ export const PriceWrap = styled.div`
 `;
 
 export const StyledLike = styled.svg`
-width: 24px;
-height: 24px;
-cursor: pointer;
-`
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+`;
