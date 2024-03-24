@@ -15,7 +15,7 @@ const catalogSlice = createSlice({
   initialState,
   reducers:{
     setFilteredItems: (state, action)=>{
-      return {...state, [state.items]: [...action.payload]}
+      return {...state, items: [...action.payload], disable: true}
     }
   },
   extraReducers: (builder) => {

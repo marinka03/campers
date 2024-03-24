@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 
 function CatalogFilterList() {
   const CAMPERS_LIST = useSelector(selectorCatalogItems);
+  const disabledItem = useSelector(state => state.catalog.disable)
   const currentPage = useSelector((state) => state.catalog.page);
   const dispatch = useDispatch();
   const [count, setCount] = useState(0);
@@ -33,12 +34,12 @@ function CatalogFilterList() {
               <CatalogFilterItem key={item.id} parentId={item.id} item={item} />
             ))}
         </StyledList>
-        <BtnWhite
+        {!disabledItem && CAMPERS_LIST?.length > 0 &&<BtnWhite
           text="Load more"
           onClick={() => {
             dispatch(currentItems({ page: currentPage + 1 }));
           }}
-        />
+        />}
       </div>
     </>
   );
