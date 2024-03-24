@@ -1,6 +1,12 @@
 import styled from "styled-components";
 import { theme } from "../../vars";
 
+export const CardName = styled.p`
+font-weight: 600;
+font-size: 24px;
+line-height: 125%;
+color: ${theme.color.main}`
+
 export const ReviewLocationWrap = styled.div`
   display: flex;
   gap: 16px;

@@ -36,6 +36,10 @@ export const GlobalStyle = createGlobalStyle`
         }
     }
     
+    .activeFilter{
+        border: ${theme.border.oranage};
+    }
+    
     .tab-list{
         border: none;
         border-bottom: ${theme.border.grey2};

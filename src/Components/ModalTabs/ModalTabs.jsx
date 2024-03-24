@@ -17,15 +17,15 @@ import "react-tabs/style/react-tabs.css";
 export default function BasicTabs({ item }) {
   return (
     <>
-      <Tabs>
-        <TabList className="tab-list">
+      <Tabs defaultIndex={0}>
+        <TabList className="tab-list" >
           <Tab className="tab-item" selectedClassName="active-tab">
             Features
           </Tab>
-          <Tab className="tab-item">Rewiews</Tab>
+          <Tab className="tab-item" selectedClassName="active-tab">Rewiews</Tab>
         </TabList>
 
-        <TabPanel className="tab-panel" forceRender={true}>
+        <TabPanel className="tab-panel">
           <TabWrapper>
             <TabContentWrap>
               <FilterListCard details={item.details}></FilterListCard>

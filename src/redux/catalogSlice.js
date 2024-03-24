@@ -13,6 +13,11 @@ const initialState = {
 const catalogSlice = createSlice({
   name: "catalog",
   initialState,
+  reducers:{
+    setFilteredItems: (state, action)=>{
+      return {...state, [state.items]: [...action.payload]}
+    }
+  },
   extraReducers: (builder) => {
     builder
       .addCase(allItems.pending, (state, _) => {
@@ -42,3 +47,4 @@ const catalogSlice = createSlice({
 });
 
 export const catalogReducer = catalogSlice.reducer;
+export const {setFilteredItems} = catalogSlice.actions;

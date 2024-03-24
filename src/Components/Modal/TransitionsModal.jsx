@@ -12,6 +12,7 @@ import { GrLocation } from "react-icons/gr";
 import BasicTabs from "../ModalTabs/ModalTabs";
 import {
   ReviewLocationWrap,
+  CardName,
   GallaryList,
   GallaryItem,
   GallaryImg,
@@ -65,13 +66,7 @@ export default function TransitionsModal({ item }) {
                 cursor: "pointer",
               }}
             >
-              <Typography
-                id="transition-modal-title"
-                variant="h6"
-                component="h2"
-              >
-                {item.name}
-              </Typography>
+              <CardName>{item.name}</CardName>
               <IoCloseSharp onClick={handleClose} size={32} />
             </div>
 

@@ -11,7 +11,6 @@ function CatalogFilterList() {
   const currentPage = useSelector((state) => state.catalog.page);
   const dispatch = useDispatch();
   const [count, setCount] = useState(0);
-  console.log("before useEff", count);
   useEffect(() => {
     if (currentPage === 0) {
       dispatch(currentItems({ page: currentPage + 1 }));
