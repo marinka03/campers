@@ -40,7 +40,7 @@ function CatalogFilterItem({ parentId, item }) {
           <h3>{item.name}</h3>
 
           <PriceWrap>
-            <span className="price">€{item.price}</span>
+            <span className="price">€{item.price.toFixed(2)}</span>
 
             <div>
               {favorite ? (

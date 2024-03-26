@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
-import CatalogFilterItem from "../../Components/CatalogFilterItem/CatalogFilterItem";
-import { StyledList } from "../../Components/CatalogFilterList/CatalogFilterList.styled";
+import CatalogFilterItem from "../../components/CatalogFilterItem/CatalogFilterItem";
+import { StyledList } from "../../components/CatalogFilterList/CatalogFilterList.styled";
 import { selectorFavoriteItems } from "../../redux/selectors";
 
 function Favorites() {

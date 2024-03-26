@@ -1,4 +1,4 @@
-import CatalogFilterList from "../../Components/CatalogFilterList/CatalogFilterList";
+import CatalogFilterList from "../../components/CatalogFilterList/CatalogFilterList";
 import { MdAir } from "react-icons/md";
 import {
   StyledSideBar,
@@ -10,9 +10,9 @@ import {
   EquipmentList,
   EquipmentItem,
 } from "./CatalogPage.styled";
-import Button from "../../Components/Button";
+import Button from "../../components/Button";
 import sprite from "../../assets/icons/icons-sprite.svg";
-import AutoCompleteCity from "../../Components/AutoCompleteCity";
+import AutoCompleteCity from "../../components/AutoCompleteCity";
 import { IoLocationOutline } from "react-icons/io5";
 import { useDispatch, useSelector } from "react-redux";
 import { changeFilterItems } from "../../redux/filterSlice/filterSlice";
@@ -41,7 +41,9 @@ function CatalogPage() {
   const dispatch = useDispatch()
 
   const handleClick = (e)=>{
-    dispatch(changeFilterItems(e.target.textContent))
+    console.dir(e.currentTarget)
+    console.dir(e.currentTarget.textContent)
+    dispatch(changeFilterItems(e.currentTarget.textContent))
   }
   const handleBlur = (e)=>{
     dispatch(changeFilterItems(e.target.value))

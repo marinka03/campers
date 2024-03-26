@@ -87,19 +87,18 @@ export default function TransitionsModal({ item }) {
                 <span>{item.location}</span>
               </div>
             </ReviewLocationWrap>
-            <StyledPrice className="price">€{item.price}</StyledPrice>
+            <StyledPrice className="price">€{item.price.toFixed(2)}</StyledPrice>
 
             <div>
-              {/* //style={{ overflow: "scroll" }} */}
               <GallaryList>
                 <GallaryItem>
-                  <GallaryImg src={item.gallery[0]} alt="ghf" />
+                  <GallaryImg src={item.gallery[0]} alt="Current car" />
                 </GallaryItem>
                 <GallaryItem>
-                  <GallaryImg src={item.gallery[1]} alt="ghj" />
+                  <GallaryImg src={item.gallery[1]} alt="View of the car from the inside" />
                 </GallaryItem>
                 <GallaryItem>
-                  <GallaryImg src={item.gallery[2]} alt="hg" />
+                  <GallaryImg src={item.gallery[2]} alt="View of the car from the inside" />
                 </GallaryItem>
               </GallaryList>
 

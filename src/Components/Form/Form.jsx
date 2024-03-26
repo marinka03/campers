@@ -48,7 +48,6 @@ function Form() {
             <StyledCommentTextarea
               name="comment"
               id="comment"
-              required
               placeholder="Comment"
             ></StyledCommentTextarea>
           </li>

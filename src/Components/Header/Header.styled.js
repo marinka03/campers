@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import assets from '../../assets/logo.png'
 
 export const StyledHeader = styled.header`
-  background-color: ${theme.color.button};
+  background-color: #2F4858;
   position: fixed;
   width: 100vw;
   height: 64px;

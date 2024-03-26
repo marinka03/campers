@@ -1,9 +1,9 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import HomePage from "./Pages/HomePage";
-import CatalogPage from "./Pages/CatalogPage";
-import AppLayout from "./Components/AppLayout";
-import Favorites from "./Pages/Favorites";
+import HomePage from "./pages/HomePage";
+import CatalogPage from "./pages/CatalogPage";
+import AppLayout from "./components/AppLayout";
+import Favorites from "./pages/Favorites";
 import { useEffect } from "react";
 import { allItems } from "./redux/operations";
 import { useDispatch } from "react-redux";
@@ -13,7 +13,7 @@ const App = () => {
 
   useEffect(() => {
     dispatch(allItems());
-  }, []);
+  }, [dispatch]);
 
   return (
     <Routes>

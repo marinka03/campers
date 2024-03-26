@@ -17,6 +17,7 @@
     "@testing-library/user-event": "^13.5.0",
     "@ubilabs/react-geosuggest": "^2.16.2",
     "axios": "^1.6.8",
+    "formik": "^2.4.5",
     "modern-normalize": "^2.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

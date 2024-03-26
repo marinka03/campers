@@ -67,19 +67,8 @@ export const GlobalStyle = createGlobalStyle`
         border-bottom: red;
     }
 
-    .css-19kzrtu{
-        padding: 44px 0 0 0;
-    }
-    .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root{
-        padding-left: 30px;
-    }
-    .MuiAutocomplete-hasPopupIcon.css-84nhb1-MuiAutocomplete-root .MuiOutlinedInput-root{
-        padding-right: 9px;
-        padding-left: 43px;
-    }
     .MuiAutocomplete-inputRoot{
         background-color: ${theme.color.inputs};
-        /* padding-left: 44px; */
     }
 
     .css-i4bv87-MuiSvgIcon-root{
