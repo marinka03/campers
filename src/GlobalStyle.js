@@ -5,7 +5,7 @@ import { theme } from "./vars.js";
 export const GlobalStyle = createGlobalStyle`
     body {
         margin: 0;
-        font-family: 'Roboto', sans-serif;
+        font-family: "Open Sans", sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         background: #FCFCFC;
