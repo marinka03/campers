@@ -7,6 +7,7 @@ export const theme = {
     rating: "#FFC531",
     inputs: "#F7F7F7",
     block_features: "#F2F4F7",
+    light: "#FFE4DE",
     white: "#fff",
   },
   border: {
@@ -16,6 +17,6 @@ export const theme = {
   breakpoint: {
     sm: "375px",
     md: "768px",
-    xl: "1440px",
+    xl: "1170px",
   },
 };
