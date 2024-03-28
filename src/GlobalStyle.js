@@ -30,6 +30,10 @@ export const GlobalStyle = createGlobalStyle`
         height: 100%;
         padding: 0 10px;
         margin: 0 auto;
+        @media (min-width: ${theme.breakpoint.md}) {
+            width: ${theme.breakpoint.md};
+            padding: 0 44px;
+        }
         @media (min-width: ${theme.breakpoint.xl}) {
             width: ${theme.breakpoint.xl};
             padding: 0 56px;
