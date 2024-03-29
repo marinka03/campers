@@ -1,11 +1,13 @@
+import { GiHamburgerMenu } from "react-icons/gi";
 import CatalogFilterList from "../../components/CatalogFilterList/CatalogFilterList";
 import { MdAir } from "react-icons/md";
 import {
-  StyledSideBar,
+  FilterSideBar,
   FilterLocation,
   LocationText,
   FilterWrapCategory,
-  StyledContentWrap,
+  ContentWrap,
+  BurgerMenuWrap,
   FilterTitleCategory,
   EquipmentList,
   EquipmentItem,
@@ -19,39 +21,46 @@ import { changeFilterItems } from "../../redux/filterSlice/filterSlice";
 import { selectorFilter } from "../../redux/filterSlice/selectors";
 import { selectorAllItems } from "../../redux/selectors";
 import { setFilteredItems } from "../../redux/catalogSlice";
+import Footer from "../../components/Footer/Footer";
+import { theme } from "../../vars";
 
 function CatalogPage() {
-  const filters = useSelector(selectorFilter)
-  const allItems = useSelector(selectorAllItems)
-  
+  const filters = useSelector(selectorFilter);
+  const allItems = useSelector(selectorAllItems);
+
   const res = allItems?.filter((item) => {
-    if((!filters.location || item.location === filters.location)&&
-      (!filters['vehicle'] || item.form === filters.vehicle)&&
-      (!filters['AC'] || item.details["airConditioner"] > 0)&&
-      (!filters['Automatic'] || item.transmission === 'automatic')&&
-      (!filters['Kitchen'] || item.details['kitchen'] > 0)&&
-      (!filters['TV'] || item.details["TV"] > 0)&&
-      (!filters['Shower/WC'] || item.details["shower"] > 0)
-      ){
-      return item
+    if (
+      (!filters.location || item.location === filters.location) &&
+      (!filters["vehicle"] || item.form === filters.vehicle) &&
+      (!filters["AC"] || item.details["airConditioner"] > 0) &&
+      (!filters["Automatic"] || item.transmission === "automatic") &&
+      (!filters["Kitchen"] || item.details["kitchen"] > 0) &&
+      (!filters["TV"] || item.details["TV"] > 0) &&
+      (!filters["Shower/WC"] || item.details["shower"] > 0)
+    ) {
+      return item;
     }
     return false;
-  })
-  
-  const dispatch = useDispatch()
+  });
 
-  const handleClick = (e)=>{
-    console.dir(e.currentTarget)
-    console.dir(e.currentTarget.textContent)
-    dispatch(changeFilterItems(e.currentTarget.textContent))
-  }
-  const handleBlur = (e)=>{
-    dispatch(changeFilterItems(e.target.value))
-  }
+  const dispatch = useDispatch();
+
+  const handleClick = (e) => {
+    console.dir(e.currentTarget);
+    console.dir(e.currentTarget.textContent);
+    dispatch(changeFilterItems(e.currentTarget.textContent));
+  };
+  const handleBlur = (e) => {
+    dispatch(changeFilterItems(e.target.value));
+  };
   return (
     <>
-      <StyledContentWrap>
-        <StyledSideBar>
+      <ContentWrap>
+        <BurgerMenuWrap>
+          <GiHamburgerMenu size={24} color={theme.color.light}/>
+        </BurgerMenuWrap>
+
+        <FilterSideBar>
           <FilterLocation style={{ position: "relative" }}>
             <IoLocationOutline
               style={{
@@ -62,9 +71,9 @@ function CatalogPage() {
               }}
               size={20}
             />
-            <div style={{ marginBottom: "32px" }}>
+            <div style={{ marginBottom: "24px" }}>
               <LocationText>Location</LocationText>
-              <AutoCompleteCity onBlur={handleBlur}/>
+              <AutoCompleteCity onBlur={handleBlur} />
             </div>
 
             <div>
@@ -74,33 +83,48 @@ function CatalogPage() {
                   <FilterTitleCategory>Vehicle equipment</FilterTitleCategory>
 
                   <EquipmentList>
-                    <EquipmentItem onClick={handleClick} className={filters.AC? 'activeFilter' : ''}>
+                    <EquipmentItem
+                      onClick={handleClick}
+                      className={filters.AC ? "activeFilter" : ""}
+                    >
                       <MdAir size={32} />
                       <span>AC</span>
                     </EquipmentItem>
 
-                    <EquipmentItem  onClick={handleClick} className={filters.Automatic? 'activeFilter' : ''}>
+                    <EquipmentItem
+                      onClick={handleClick}
+                      className={filters.Automatic ? "activeFilter" : ""}
+                    >
                       <svg width={32} height={32}>
                         <use href={`${sprite}#automatic`} />
                       </svg>
                       <span>Automatic</span>
                     </EquipmentItem>
 
-                    <EquipmentItem  onClick={handleClick} className={filters.Kitchen? 'activeFilter' : ''}>
+                    <EquipmentItem
+                      onClick={handleClick}
+                      className={filters.Kitchen ? "activeFilter" : ""}
+                    >
                       <svg width={32} height={32}>
                         <use href={`${sprite}#kitchen-big`} />
                       </svg>
                       <span>Kitchen</span>
                     </EquipmentItem>
 
-                    <EquipmentItem  onClick={handleClick} className={filters.TV? 'activeFilter' : ''}>
+                    <EquipmentItem
+                      onClick={handleClick}
+                      className={filters.TV ? "activeFilter" : ""}
+                    >
                       <svg width={32} height={32}>
                         <use href={`${sprite}#tv`} />
                       </svg>
                       <span>TV</span>
                     </EquipmentItem>
 
-                    <EquipmentItem  onClick={handleClick} className={filters['Shower/WC']? 'activeFilter' : ''}>
+                    <EquipmentItem
+                      onClick={handleClick}
+                      className={filters["Shower/WC"] ? "activeFilter" : ""}
+                    >
                       <svg width={32} height={32}>
                         <use href={`${sprite}#shower`} />
                       </svg>
@@ -109,22 +133,39 @@ function CatalogPage() {
                   </EquipmentList>
                 </div>
 
-                <div style={{ murginBottom: "32px" }}>
+                <div style={{ murginBottom: "24px" }}>
                   <FilterTitleCategory>Vehicle type</FilterTitleCategory>
                   <EquipmentList>
-                    <EquipmentItem onClick={handleClick} className={filters.vehicle === 'Van'? 'activeFilter' : ''}>
+                    <EquipmentItem
+                      onClick={handleClick}
+                      className={
+                        filters.vehicle === "Van" ? "activeFilter" : ""
+                      }
+                    >
                       <svg width={40} height={28}>
                         <use href={`${sprite}#van`} />
                       </svg>
                       <span>Van</span>
                     </EquipmentItem>
-                    <EquipmentItem onClick={handleClick} className={filters.vehicle === 'Fully Integrated'? 'activeFilter' : ''}>
+                    <EquipmentItem
+                      onClick={handleClick}
+                      className={
+                        filters.vehicle === "Fully Integrated"
+                          ? "activeFilter"
+                          : ""
+                      }
+                    >
                       <svg width={40} height={28}>
                         <use href={`${sprite}#fully-integrated`} />
                       </svg>
                       <span>Fully Integrated</span>
                     </EquipmentItem>
-                    <EquipmentItem onClick={handleClick} className={filters.vehicle === 'Alcove'? 'activeFilter' : ''}>
+                    <EquipmentItem
+                      onClick={handleClick}
+                      className={
+                        filters.vehicle === "Alcove" ? "activeFilter" : ""
+                      }
+                    >
                       <svg width={40} height={28}>
                         <use href={`${sprite}#alcove`} />
                       </svg>
@@ -132,14 +173,19 @@ function CatalogPage() {
                     </EquipmentItem>
                   </EquipmentList>
                 </div>
-                <Button text="Search" onClick={()=>dispatch(setFilteredItems(res))}/>
+                <Button
+                  text="Search"
+                  onClick={() => dispatch(setFilteredItems(res))}
+                />
               </FilterWrapCategory>
             </div>
           </FilterLocation>
-        </StyledSideBar>
+        </FilterSideBar>
 
         <CatalogFilterList />
-      </StyledContentWrap>
+      </ContentWrap>
+
+      <Footer/>
     </>
   );
 }

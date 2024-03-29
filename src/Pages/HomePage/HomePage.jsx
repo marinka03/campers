@@ -1,10 +1,11 @@
+import Footer from "../../components/Footer/Footer.jsx";
 import {
+  Title,
+  Slogan,
   StyledSection,
-  TitleAboutUs,
   WelcomeDescription,
   Bg,
   WelcomeDescriptionText,
-  StyledSecondTitle,
   StyledList,
   StyledItem,
 } from "./HomePage.styled.js";
@@ -12,25 +13,37 @@ import {
 function HomePage() {
   return (
     <>
-      <StyledSection>
-        <TitleAboutUs>About our team</TitleAboutUs>
+      <Bg>
+        <Title>T<span style={{ fontFamily: "Petit Formal Script"}}>h</span>is i<span style={{ fontFamily: "Petit Formal Script"}}>s</span> your journe<span style={{ fontFamily: "Petit Formal Script"}}>y!</span></Title>
+        <Slogan>
+          Where every journey becomes your adventure! Rent a camper and embark
+          on endless adventures with us!
+        </Slogan>
+      </Bg>
 
+      <StyledSection>
         <WelcomeDescription>
-          <Bg />
+          <div>
+            <img
+              loading="lazy"
+              src="https://tboutdoorrentals.com/wp-content/w3-webp/uploads/2023/03/TB_Van_18-1536x1024.jpgw3.webp"
+              alt="Camper van"
+            />
+          </div>
           <WelcomeDescriptionText>
-            Hello! Are you looking for adventure and unforgettable journeys?
-            Welcome to our company "Campers"! We will help you make your
-            travel dreams a reality by providing you with the most comfortable
-            and stylish camper rentals in Ukraine. What makes our company
-            special? Our campers are not just vehicles, they are your homes on
-            wheels, accompanying you on all your adventures. Whether you are
-            traveling as a couple, with family, or with friends, we have the
-            perfect camper to meet your needs and desires. So, if you dream of
-            exciting travels and new experiences, turn to "Campers" and
-            let us make your next journey the best one yet!
+            Are you looking for adventure and unforgettable journeys? Welcome to
+            our company "Campers"! We will help you make your travel dreams a
+            reality by providing you with the most comfortable and stylish
+            camper rentals in Ukraine. What makes our company special? Our
+            campers are not just vehicles, they are your homes on wheels,
+            accompanying you on all your adventures. Whether you are traveling
+            as a couple, with family, or with friends, we have the perfect
+            camper to meet your needs and desires. So, if you dream of exciting
+            travels and new experiences, turn to "Campers" and let us make your
+            next journey the best one yet!
           </WelcomeDescriptionText>
         </WelcomeDescription>
-        <StyledSecondTitle>What we offer:</StyledSecondTitle>
+
         <StyledList>
           <StyledItem>
             <b>Variety of Models: </b> You can choose a camper that suits your
@@ -55,6 +68,8 @@ function HomePage() {
           </StyledItem>
         </StyledList>
       </StyledSection>
+
+      <Footer />
     </>
   );
 }

@@ -1,15 +1,15 @@
 import styled from "styled-components";
 import { theme } from "../../vars";
 import { NavLink } from "react-router-dom";
-import assets from '../../assets/logo.png'
 
 export const StyledHeader = styled.header`
-  background-color: #2F4858;
+  background-color: #2f4858;
   position: fixed;
   width: 100vw;
   height: 64px;
   z-index: 99;
   top: 0;
+
 `;
 
 export const StyledContentWrap = styled.div`
@@ -20,20 +20,18 @@ export const StyledContentWrap = styled.div`
   font-size: 20px;
 `;
 
-export const Logo = styled.div`
-background-image: url(${assets});
-height: 100px;
-width: 100px;
-background-repeat: no-repeat;
-`
-
 export const NavList = styled.ul`
   display: flex;
   align-items: center;
   gap: 24px;
   font-weight: 600;
+
 `;
 
 export const StyledNavLink = styled(NavLink)`
-  color: ${theme.color.white};
+  color: ${theme.color.light};
+  font-size: 20px;
+  @media (min-width: ${theme.breakpoint.md}){
+    font-size: 25px;
+  }
 `;

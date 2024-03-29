@@ -1,59 +1,84 @@
 import React from "react";
 import Button from "../Button";
 import {
+  ErrorMsg,
   FormWrap,
-  FormList,
+  BookingForm,
   FormTitle,
-  StyledFormInput,
-  StyledCommentTextarea,
+  FormField,
+  CommentTextarea,
 } from "./Form.styled";
+import { Formik } from "formik";
+import * as Yup from "yup";
+
+const BookingSchema = Yup.object().shape({
+  name: Yup.string()
+    .min(2, "Too Short!")
+    .max(50, "Too Long!")
+    .required("Required"),
+  email: Yup.string().email("Invalid email").required("Required"),
+  date: Yup.date().required("Required"),
+  comment: Yup.string(),
+});
 
 function Form() {
   return (
     <FormWrap>
-      <form>
-        <FormTitle>Book your campervan now</FormTitle>
-        <p style={{ marginBottom: "24px" }}>
-          Stay connected! We are always ready to help you.
-        </p>
-        <FormList>
-          <li>
-            <StyledFormInput
-              type="text"
-              name="name"
-              id="name"
-              required
-              placeholder="Name"
-            />
-          </li>
-          <li>
-            <StyledFormInput
-              type="email"
-              name="email"
-              id="email"
-              required
-              placeholder="Email"
-            />
-          </li>
-          <li>
-            <StyledFormInput
-              type="date"
-              name="date"
-              id="date"
-              required
-              placeholder="Booking date"
-            />
-          </li>
-          <li>
-            <StyledCommentTextarea
-              name="comment"
+      <div>
+        <Formik
+          initialValues={{
+            name: "",
+            email: "",
+            date: "",
+            comment: "",
+          }}
+          validationSchema={BookingSchema}
+          onSubmit={async (values, actions) => {
+            console.log(values);
+            actions.resetForm();
+          }}
+        >
+          <BookingForm>
+            <FormTitle>Book your campervan now</FormTitle>
+            <p style={{ marginBottom: "24px" }}>
+              Stay connected! We are always ready to help you.
+            </p>
+            <label style={{ position: "relative" }}>
+              <FormField id="name" name="name" placeholder="Name" />
+              <ErrorMsg name="name" component="span" />
+            </label>
+
+            <label style={{ position: "relative" }}>
+              <FormField
+                id="email"
+                name="email"
+                placeholder="Email"
+                type="email"
+              />
+              <ErrorMsg name="email" component="span" />
+            </label>
+
+            <label style={{ position: "relative" }}>
+              <FormField
+                id="date"
+                name="date"
+                placeholder="Booking date"
+                type="date"
+              />
+              <ErrorMsg name="date" component="span" />
+            </label>
+
+            <CommentTextarea
               id="comment"
+              component="textarea"
+              name="comment"
               placeholder="Comment"
-            ></StyledCommentTextarea>
-          </li>
-        </FormList>
-        <Button text="Send" />
-      </form>
+            />
+
+            <Button text="Send" />
+          </BookingForm>
+        </Formik>
+      </div>
     </FormWrap>
   );
 }

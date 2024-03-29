@@ -5,9 +5,10 @@ import {
   NavList,
   StyledNavLink,
   StyledContentWrap,
-  Logo
 } from "./Header.styled.js";
 import { Link } from "react-router-dom";
+import sprite from "../../assets/camper.svg";
+import { theme } from "../../vars.js";
 
 function Header() {
   return (
@@ -15,7 +16,11 @@ function Header() {
       <div className="container">
         <StyledContentWrap className="content">
           <Link to={"/"}>
-            <Logo></Logo>
+            <div>
+          <svg width={60} height={45} stroke={theme.color.light}>
+            <use href={`${sprite}#camper`} />
+          </svg>
+          </div>
           </Link>
 
           <nav>

@@ -1,11 +1,16 @@
 import styled from "styled-components";
 import { theme } from "../../vars";
 
-export const StyledContentWrap = styled.section`
+export const ContentWrap = styled.section`
+  position: relative;
   display: flex;
+  flex-direction: column;
   gap: 64px;
   margin-top: 164px;
   margin-bottom: 100px;
+  @media (min-width: ${theme.breakpoint.xl}) {
+    flex-direction: row;
+  }
 `;
 
 export const LocationText = styled.span`
@@ -13,9 +18,32 @@ export const LocationText = styled.span`
   margin-bottom: 8px;
 `;
 
-export const StyledSideBar = styled.aside`
-  width: 360px;
-  height: 740px;
+export const BurgerMenuWrap = styled.div`
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 64px;
+  height: 64px;
+  background-color: ${theme.color.main};
+
+  @media (min-width: ${theme.breakpoint.xl}) {
+    display: none;
+  }
+`;
+
+export const FilterSideBar = styled.aside`
+  display: none;
+  @media (min-width: ${theme.breakpoint.xl}) {
+    display: block;
+    position: sticky;
+    top: 40px;
+    width: 30%;
+    height: 740px;
+  }
 `;
 
 export const FilterLocation = styled.div`
@@ -27,7 +55,7 @@ export const FilterWrapCategory = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 32px;
+  gap: 24px;
 `;
 
 export const FilterTitleCategory = styled.h3`
