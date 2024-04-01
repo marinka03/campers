@@ -16,8 +16,9 @@ function CatalogFilterList() {
     if (currentPage === 0) {
       dispatch(currentItems({ page: currentPage + 1 }));
       setCount(1);
+      console.log(count)
     }
-  }, [currentPage, dispatch]);
+  }, [currentPage, dispatch, count]);
 
   return (
     <>
