@@ -1,9 +1,9 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import HomePage from "./pages/HomePage";
-import CatalogPage from "./pages/CatalogPage";
-import AppLayout from "./components/AppLayout";
-import Favorites from "./pages/Favorites";
+import HomePage from "./Pages/HomePage";
+import CatalogPage from "./Pages/CatalogPage/CatalogPage";
+import AppLayout from "./Components/AppLayout/AppLayout";
+import Favorites from "./Pages/Favorites/Favorites";
 import { useEffect } from "react";
 import { allItems } from "./redux/operations";
 import { useDispatch } from "react-redux";

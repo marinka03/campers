@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux";
-import CatalogFilterItem from "../../components/CatalogFilterItem/CatalogFilterItem";
-import { StyledList } from "../../components/CatalogFilterList/CatalogFilterList.styled";
+import CatalogFilterItem from "../../Components/CatalogFilterItem";
+import { StyledList } from "../../Components/CatalogFilterList/CatalogFilterList.styled";
 import { selectorFavoriteItems } from "../../redux/selectors";
-import Footer from "../../components/Footer/Footer";
+import Footer from "../../Components/Footer";
 
 function Favorites() {
   const fav = useSelector(selectorFavoriteItems);
