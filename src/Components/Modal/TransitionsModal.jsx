@@ -1,4 +1,5 @@
 import React from "react";
+import { v4 as uuid } from "uuid";
 import Backdrop from "@mui/material/Backdrop";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
@@ -87,19 +88,17 @@ export default function TransitionsModal({ item }) {
                 <span>{item.location}</span>
               </div>
             </ReviewLocationWrap>
-            <StyledPrice className="price">€{item.price.toFixed(2)}</StyledPrice>
+            <StyledPrice className="price">
+              €{item.price.toFixed(2)}
+            </StyledPrice>
 
             <div>
               <GallaryList>
-                <GallaryItem>
-                  <GallaryImg src={item.gallery[0]} alt="Current car" />
-                </GallaryItem>
-                <GallaryItem>
-                  <GallaryImg src={item.gallery[1]} alt="View of the car from the inside" />
-                </GallaryItem>
-                <GallaryItem>
-                  <GallaryImg src={item.gallery[2]} alt="View of the car from the inside" />
-                </GallaryItem>
+                { item.gallery.map(el => (
+                  <GallaryItem key={uuid()}>
+                    <GallaryImg src={el} alt="Current car" />
+                  </GallaryItem>
+                ))}
               </GallaryList>
 
               <Typography id="transition-modal-description" sx={{ mt: 2 }}>
@@ -107,6 +106,7 @@ export default function TransitionsModal({ item }) {
               </Typography>
               <BasicTabs item={item} />
             </div>
+            
           </Box>
         </Fade>
       </Modal>

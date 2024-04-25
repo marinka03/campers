@@ -1,4 +1,4 @@
-import Footer from "../../Components/Footer/Footer.jsx";
+import Footer from "../../components/Footer/Footer.jsx";
 import {
   Title,
   Slogan,

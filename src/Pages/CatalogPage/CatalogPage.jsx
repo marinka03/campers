@@ -1,5 +1,5 @@
 import { GiHamburgerMenu } from "react-icons/gi";
-import CatalogFilterList from "../../Components/CatalogFilterList";
+import CatalogFilterList from "../../components/CatalogFilterList";
 import { MdAir } from "react-icons/md";
 import {
   FilterSideBar,
@@ -12,16 +12,16 @@ import {
   EquipmentList,
   EquipmentItem,
 } from "./CatalogPage.styled";
-import Button from "../../Components/Button/Button";
+import Button from "../../components/Button/Button";
 import sprite from "../../assets/icons/icons-sprite.svg";
-import AutoCompleteCity from "../../Components/AutoCompleteCity";
+import AutoCompleteCity from "../../components/AutoCompleteCity";
 import { IoLocationOutline } from "react-icons/io5";
 import { useDispatch, useSelector } from "react-redux";
 import { changeFilterItems } from "../../redux/filterSlice/filterSlice";
 import { selectorFilter } from "../../redux/filterSlice/selectors";
 import { selectorAllItems } from "../../redux/selectors";
 import { setFilteredItems } from "../../redux/catalogSlice";
-import Footer from "../../Components/Footer";
+import Footer from "../../components/Footer";
 import { theme } from "../../vars";
 
 function CatalogPage() {

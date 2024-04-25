@@ -1,3 +1,4 @@
+import { v4 as uuid } from "uuid";
 import CatalogFilterItem from "../CatalogFilterItem/CatalogFilterItem";
 import { StyledList } from "./CatalogFilterList.styled";
 import { useDispatch, useSelector } from "react-redux";
@@ -32,7 +33,7 @@ function CatalogFilterList() {
         <StyledList>
           {CAMPERS_LIST?.length > 0 &&
             CAMPERS_LIST.map((item) => (
-              <CatalogFilterItem key={item.id} parentId={item.id} item={item} />
+              <CatalogFilterItem key={uuid()} parentId={item.id} item={item} />
             ))}
         </StyledList>
         {!disabledItem && CAMPERS_LIST?.length > 0 &&<BtnWhite
